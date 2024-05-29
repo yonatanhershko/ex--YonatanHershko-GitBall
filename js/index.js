@@ -9,6 +9,8 @@ var ranNum2 = getRandomInt(20, 61)
 var ball1 = document.querySelector(".ball")
 var ball2 = document.querySelector(".ball2")
 var interval
+var gState = []
+
 
 function onBallClick(ball, maxDiameter) {
     if (ballHeight < maxDiameter) {
@@ -126,13 +128,6 @@ function onBall6() {
     }, 2000)
 }
 
-
-function undo() {
-    var currUndo = []
-
-}
-
-
 function saveState() {
     var state = {}
     ball1 = {
@@ -145,6 +140,31 @@ function saveState() {
         width: (ball2.style.width || ball2Height + 'px'),
         hight: (ball2.style.hight || ball2Height + 'px'),
         text: ball2.innerHTML,
-        color: (ball2.style.backgroundColor || 'blanchedalmond')
+        color: (ball2.style.backgroundColor || 'rgb(205, 253, 255)')
     }
+    state.backgroundColor = (document.body.style.backgroundColor || '#252525')
+    gState.push(state)
 }
+
+
+function undo() {
+    console.log('hh');
+    if (!gState.length) return 'Make a move'
+
+
+    var prevState = gState[gState.length - 1]
+
+    ball1.style.width = prevState.ball1.width
+    ball1.style.hight = prevState.ball1.hight
+    ball1.style.backgroundColor = prevState.ball1.color
+    ball1.innerHTML = prevState.ball1.text
+
+    ball2.style.width = prevState.ball2.width
+    ball2.style.hight = prevState.ball2.hight
+    ball2.style.backgroundColor = prevState.ball2.color
+    ball2.innerHTML = prevState.ball2.text
+
+
+}
+
+
