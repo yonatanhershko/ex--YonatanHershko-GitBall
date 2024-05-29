@@ -12,6 +12,7 @@ var ball2 = document.querySelector(".ball2")
 var interval
 
 var gState = []
+var gRedoState = []
 
 
 
@@ -36,27 +37,46 @@ function saveState() {
 
 
 function undo() {
-    if (!gState.length) return'make a move.'
+    if (!gState.length) return 
 
     var prevState = gState.pop()
-    
+    gRedoState.push(prevState)
+
     ball1.style.width = prevState.ball1.width
     ball1.style.height = prevState.ball1.height
     ball1.style.backgroundColor = prevState.ball1.color
     ball1.innerHTML = prevState.ball1.text
-    
+
     ball2.style.width = prevState.ball2.width
     ball2.style.height = prevState.ball2.height
     ball2.style.backgroundColor = prevState.ball2.color
     ball2.innerHTML = prevState.ball2.text
     document.body.style.backgroundColor = prevState.backgroundColor;
 
-    console.log('Undo successful.');
+    console.log('undo successful.');
     return 'Undo successful.'
 }
 
 
+function redo() {
+    if (!gRedoState.length) return 
+    var lastState = gRedoState.pop()
 
+    ball1.style.width = lastState.ball1.width
+    ball1.style.height = lastState.ball1.height
+    ball1.style.backgroundColor = lastState.ball1.color
+    ball1.innerHTML = lastState.ball1.text
+
+    ball2.style.width = lastState.ball2.width
+    ball2.style.height = lastState.ball2.height
+    ball2.style.backgroundColor = lastState.ball2.color
+    ball2.innerHTML = lastState.ball2.text
+    document.body.style.backgroundColor = lastState.backgroundColor;
+
+    gState.push(lastState)
+    console.log('redo successful.')
+    return 'Redo successful.'
+}
 
 
 function onBallClick(ball, maxDiameter) {
@@ -66,13 +86,13 @@ function onBallClick(ball, maxDiameter) {
         ball.style.width = gBall1size + 'px'
         ball.style.height = gBall1size + 'px'
         ball1.innerHTML = gBall1size
-        
+
     } else {
         gBall1size = 100
         ball.style.width = gBall1size + 'px'
         ball.style.height = gBall1size + 'px'
         ball1.innerHTML = gBall1size
-    } 
+    }
     saveState()
 }
 
@@ -83,13 +103,13 @@ function onBall2Click(ball, maxDiameter) {
         ball.style.width = gBall2size + 'px'
         ball.style.height = gBall2size + 'px'
         ball2.innerHTML = gBall2size
-        
+
     } else {
         gBall2size = 100
         ball.style.width = gBall2size + 'px'
         ball.style.height = gBall2size + 'px'
         ball2.innerHTML = gBall2size
-    } 
+    }
     saveState()
 }
 
