@@ -17,3 +17,7 @@ function onBallClick(ball,maxDiameter) {
     }
     console.log(ball,maxDiameter);
 }
+
+function onBall3Click(){
+    
+}

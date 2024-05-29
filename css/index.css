@@ -23,7 +23,6 @@ body {
     position: absolute;
     right: 30%;
     text-align: center;
-
     height: 100px;
     width: 100px;
     border-radius: 50%;
@@ -32,4 +31,19 @@ body {
     font-weight: bold;
     transition: 1s;
     background-color: rgb(205, 253, 255);
+}
+
+.ball3{
+    position: absolute;
+    left: 30%;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: rgb(255, 205, 213);
+
+
 }
