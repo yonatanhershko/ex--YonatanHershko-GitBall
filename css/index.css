@@ -5,6 +5,7 @@ body {
 }
 
 .ball{
+    text-align: center;
     margin: auto;
     height: 100px;
     width: 100px;
