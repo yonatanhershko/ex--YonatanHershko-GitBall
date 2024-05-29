@@ -14,24 +14,49 @@ function onBallClick(ball, maxDiameter) {
         ballWidth += ranNum
         ball.style.width = ballHeight + 'px'
         ball.style.height = ballWidth + 'px'
+        ball1.innerHTML = ballHeight
     } else {
         ballHeight = 100
         ballWidth = 100
-    }
+        ball.style.width = ballHeight + 'px'
+        ball.style.height = ballWidth + 'px'
+        ball1.innerHTML = ballHeight
+    }return { ballHeight, ballWidth }
 }
+
+function onBall2Click(ball, maxDiameter) {
+    if (ballHeight < maxDiameter) {
+        ball.style.backgroundColor = getRandomColor()
+        ballHeight += ranNum
+        ballWidth += ranNum
+        ball.style.width = ballHeight + 'px'
+        ball.style.height = ballWidth + 'px'
+        ball2.innerHTML = ballHeight
+    } else {
+        ballHeight = 100
+        ballWidth = 100
+        ball.style.width = ballHeight + 'px'
+        ball.style.height = ballWidth + 'px'
+        ball2.innerHTML = ballHeight
+    }return { ballHeight, ballWidth }
+}
+
 
 function onBall3Click() {
     var ball1Color = ball1.style.backgroundColor
     var ball1Width = ball1.style.width
     var ball1Height = ball1.style.height
+    var ball1Text = ball1.innerHTML
 
     ball1.style.backgroundColor = ball2.style.backgroundColor
     ball1.style.width = ball2.style.width
     ball1.style.height = ball2.style.height
+    ball1.innerHTML = ball2.innerHTML
 
     ball2.style.backgroundColor = ball1Color
     ball2.style.width = ball1Width
     ball2.style.height = ball1Height
+    ball2.innerHTML = ball1Text
 
 }
 
@@ -91,7 +116,15 @@ function onBall6() {
 }
 
 
-function undo(){
-var currUndo = []
+function undo() {
+    var currUndo = []
 
 }
+
+
+// function saveState() {
+//     var state = {
+//         ball:
+//         ball2: 
+//     }
+// }
