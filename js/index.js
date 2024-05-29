@@ -35,3 +35,7 @@ function onBall3Click(){
      ball2.style.height = tempHeight
 
 }
+
+function onBall4Click() {
+    
+}

@@ -37,6 +37,7 @@ body {
     position: absolute;
     left: 30%;
     text-align: center;
+    line-height: 50px;
     height: 100px;
     width: 100px;
     border-radius: 50%;
@@ -44,4 +45,18 @@ body {
     font-size: 15px;
     font-weight: bold;
     background-color: rgb(255, 205, 213);
+}
+
+.ball4{
+    position: absolute;
+    left: 15%;
+    text-align: center;
+    line-height: 50px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(205, 255, 223);
 }
