@@ -6,7 +6,7 @@ var ranNum = getRandomInt(20, 61)
 var ball1 = document.querySelector(".ball")
 var ball2 = document.querySelector(".ball2")
 
-function onBallClick(ball,maxDiameter) {
+function onBallClick(ball, maxDiameter) {
     if (ballHeight < maxDiameter) {
         ball.style.backgroundColor = getRandomColor()
         ballHeight += ranNum
@@ -19,22 +19,22 @@ function onBallClick(ball,maxDiameter) {
     }
 }
 
-function onBall3Click(){
-     var ball1Color = ball1.style.backgroundColor
-     var ball1Width = ball1.style.width
-     var ball1Height = ball1.style.height
- 
-     ball1.style.backgroundColor = ball2.style.backgroundColor
-     ball1.style.width = ball2.style.width
-     ball1.style.height = ball2.style.height
- 
-     ball2.style.backgroundColor = ball1Color
-     ball2.style.width = ball1Width
-     ball2.style.height = ball1Height
+function onBall3Click() {
+    var ball1Color = ball1.style.backgroundColor
+    var ball1Width = ball1.style.width
+    var ball1Height = ball1.style.height
+
+    ball1.style.backgroundColor = ball2.style.backgroundColor
+    ball1.style.width = ball2.style.width
+    ball1.style.height = ball2.style.height
+
+    ball2.style.backgroundColor = ball1Color
+    ball2.style.width = ball1Width
+    ball2.style.height = ball1Height
 
 }
 
-function onBall4Click(change,Reduced) {
+function onBall4Click(change, Reduced) {
     if (ballHeight > Reduced) {
         ballHeight -= ranNum
         ballWidth -= ranNum
@@ -50,10 +50,21 @@ function onBall4Click(change,Reduced) {
 
 }
 
-function onBall5Click(){
+function onBall5Click() {
     document.body.style.backgroundColor = getRandomColor()
 }
 
-function onBall6Click(){
-    
+function onBall6Click() {
+    ballHeight = 100
+    ballWidth = 100
+
+    ball1.style.width = "100px"
+    ball1.style.height = "100px"
+    ball1.style.backgroundColor = "blanchedalmond"
+
+    ball2.style.width = "100px"
+    ball2.style.height = "100px"
+    ball2.style.backgroundColor = "rgb(205, 253, 255)"
+
+    document.body.style.backgroundColor = "#252525"
 }
