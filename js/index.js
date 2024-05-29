@@ -2,7 +2,10 @@
 
 var ballHeight = 100
 var ballWidth = 100
+var ball2Height = 100
+var ball2Width = 100
 var ranNum = getRandomInt(20, 61)
+var ranNum2 = getRandomInt(20, 61)
 var ball1 = document.querySelector(".ball")
 var ball2 = document.querySelector(".ball2")
 var interval
@@ -21,24 +24,24 @@ function onBallClick(ball, maxDiameter) {
         ball.style.width = ballHeight + 'px'
         ball.style.height = ballWidth + 'px'
         ball1.innerHTML = ballHeight
-    }return { ballHeight, ballWidth }
+    } return { ballHeight, ballWidth }
 }
 
 function onBall2Click(ball, maxDiameter) {
-    if (ballHeight < maxDiameter) {
+    if (ball2Height < maxDiameter) {
         ball.style.backgroundColor = getRandomColor()
-        ballHeight += ranNum
-        ballWidth += ranNum
-        ball.style.width = ballHeight + 'px'
-        ball.style.height = ballWidth + 'px'
-        ball2.innerHTML = ballHeight
+        ball2Height += ranNum2
+        ball2Width += ranNum2
+        ball.style.width = ball2Height + 'px'
+        ball.style.height = ball2Width + 'px'
+        ball2.innerHTML = ball2Height
     } else {
-        ballHeight = 100
-        ballWidth = 100
-        ball.style.width = ballHeight + 'px'
-        ball.style.height = ballWidth + 'px'
-        ball2.innerHTML = ballHeight
-    }return { ballHeight, ballWidth }
+        ball2Height = 100
+        ball2Width = 100
+        ball.style.width = ball2Height + 'px'
+        ball.style.height = ball2Width + 'px'
+        ball2.innerHTML = ball2Height
+    } return { ball2Height, ball2Width }
 }
 
 
@@ -64,14 +67,20 @@ function onBall4Click(change, Reduced) {
     if (ballHeight > Reduced) {
         ballHeight -= ranNum
         ballWidth -= ranNum
-        ball2.style.width = ballHeight + 'px'
-        ball2.style.height = ballWidth + 'px'
+        ball2Height -= ranNum2
+        ball2Width -= ranNum2
+        ball2.style.width = ball2Height + 'px'
+        ball2.style.height = ball2Width + 'px'
         ball1.style.width = ballHeight + 'px'
         ball1.style.height = ballWidth + 'px'
+        ball2.innerHTML = ball2Height
+        ball1.innerHTML = ballHeight
     }
     else {
         ballHeight = 100
         ballWidth = 100
+        ball2Height = 100
+        ball2Width = 100
     }
 
 }
@@ -83,6 +92,8 @@ function onBall5Click() {
 function onBall6Click() {
     ballHeight = 100
     ballWidth = 100
+    ball2Height = 100
+    ball2Width = 100
 
     ball1.style.width = "100px"
     ball1.style.height = "100px"
@@ -122,9 +133,18 @@ function undo() {
 }
 
 
-// function saveState() {
-//     var state = {
-//         ball:
-//         ball2: 
-//     }
-// }
+function saveState() {
+    var state = {}
+    ball1 = {
+        width: (ball1.style.width || ballHeight + 'px'),
+        hight: (ball1.style.hight || ballHeight + 'px'),
+        text: ball1.innerHTML,
+        color: (ball1.style.backgroundColor || 'blanchedalmond')
+    }
+    ball2 = {
+        width: (ball2.style.width || ball2Height + 'px'),
+        hight: (ball2.style.hight || ball2Height + 'px'),
+        text: ball2.innerHTML,
+        color: (ball2.style.backgroundColor || 'blanchedalmond')
+    }
+}
