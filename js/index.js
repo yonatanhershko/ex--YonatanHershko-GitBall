@@ -4,9 +4,8 @@ var ballHeight = 100
 var ballWidth = 100
 var ranNum = getRandomInt(20, 61)
 
-function onBallClick(ball) {
-    
-    if (ballHeight <= 400 && ballWidth <= 400) {
+function onBallClick(ball,maxDiameter) {
+    if (ballHeight < maxDiameter) {
         ball.style.backgroundColor = getRandomColor()
         ballHeight += ranNum
         ballWidth += ranNum
@@ -16,4 +15,5 @@ function onBallClick(ball) {
         ballHeight = 100
         ballWidth = 100
     }
+    console.log(ball,maxDiameter);
 }
