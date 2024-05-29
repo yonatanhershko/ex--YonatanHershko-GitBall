@@ -3,3 +3,11 @@ body {
     font-family: Helvetica;
     color: #ebf1f1;
 }
+
+.ball{
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: blanchedalmond;
+}
