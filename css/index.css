@@ -12,9 +12,24 @@ body {
     height: 100px;
     width: 100px;
     border-radius: 50%;
-
+    display: inline-block;
     font-size: 22px;
     font-weight: bold;
     background-color: blanchedalmond;
     transition: 1s;
+}
+
+.ball2{
+    position: absolute;
+    right: 30%;
+    text-align: center;
+
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    transition: 1s;
+    background-color: rgb(205, 253, 255);
 }
