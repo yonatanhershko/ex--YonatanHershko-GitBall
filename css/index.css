@@ -75,3 +75,18 @@ body {
     font-weight: bold;
     background-color: rgb(255, 251, 205);
 }
+
+
+.ball6{
+    position: absolute;
+    left: 0%;
+    text-align: center;
+    line-height: 50px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(255, 251, 205);
+}
