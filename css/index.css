@@ -41,9 +41,7 @@ body {
     width: 100px;
     border-radius: 50%;
     display: inline-block;
-    font-size: 22px;
+    font-size: 15px;
     font-weight: bold;
     background-color: rgb(255, 205, 213);
-
-
 }
