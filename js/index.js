@@ -47,5 +47,9 @@ function onBall4Click(change,Reduced) {
         ballHeight = 100
         ballWidth = 100
     }
+
+}
+
+function onBall5Click(){
     
 }
