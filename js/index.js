@@ -1,22 +1,19 @@
 'use strict'
 
-var ballHight
-var ballWidth
+var ballHeight = 100
+var ballWidth = 100
 var ranNum = getRandomInt(20, 61)
 
-
-function onBallClick() {
-    var ball = document.querySelector('.ball')
-    if (ballHight + 50 <= 400 && ballWidth + 50 <= 400) {
-        ballHight += ranNum
-        ballWidth += ranNum
+function onBallClick(ball) {
+    
+    if (ballHeight <= 400 && ballWidth <= 400) {
         ball.style.backgroundColor = getRandomColor()
+        ballHeight += ranNum
+        ballWidth += ranNum
+        ball.style.width = ballHeight + 'px'
+        ball.style.height = ballWidth + 'px'
     } else {
-        ballHight = 100
+        ballHeight = 100
         ballWidth = 100
     }
-    // console.log(ball);
-    ball.style.width = ballHight + 'px'
-    ball.style.height = ballWidth + 'px'
 }
-
