@@ -8,12 +8,15 @@ var ranNum2 = getRandomInt(20, 61)
 
 var ball1 = document.querySelector(".ball")
 var ball2 = document.querySelector(".ball2")
-
+var elBt = document.querySelector('.bt')
 var interval
 
 var gState = []
 var gRedoState = []
 
+function manageUndoRedo(){
+    elBt.classList.toggle('bt-visibility')
+}
 
 
 saveState()

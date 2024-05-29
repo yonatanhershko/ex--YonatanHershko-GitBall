@@ -93,4 +93,19 @@ body {
 
 .bt{
     line-height: 50px;
+    
+}
+
+.bt-visibility{
+    visibility: hidden;
+
+}
+h2{
+    transition: 1s;
+}
+
+h2:hover{
+    cursor: pointer;
+    color: #2ea1ed;
+
 }

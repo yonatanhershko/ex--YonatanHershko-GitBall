@@ -10,9 +10,10 @@
 
 <body>
     <h1>The Ball Game</h1>
-    <div class="bt">
-        <button onclick="undo()">Undo</button>
-        <button onclick="redo()">Redo</button>
+    <h2 onclick="manageUndoRedo()"> Undo & Redo</h2>
+    <div class="bt bt-visibility">
+        <button onclick="undo()">🔙</button>
+        <button onclick="redo()">⏩</button>
     </div>
     <div class="ball" onclick="onBallClick(this,200)"></div>
     <div class="ball2" onclick="onBall2Click(this, 300)"></div>
