@@ -5,6 +5,7 @@ var ballWidth = 100
 var ranNum = getRandomInt(20, 61)
 var ball1 = document.querySelector(".ball")
 var ball2 = document.querySelector(".ball2")
+var interval
 
 function onBallClick(ball, maxDiameter) {
     if (ballHeight < maxDiameter) {
@@ -67,4 +68,30 @@ function onBall6Click() {
     ball2.style.backgroundColor = "rgb(205, 253, 255)"
 
     document.body.style.backgroundColor = "#252525"
+}
+
+
+var intervalCount = 0
+function onBall6() {
+    console.log('hhh');
+    interval = setTimeout(function () {
+        interval = setInterval(function () {
+            if (intervalCount > 10) {
+                clearInterval(interval)
+                return
+            }
+            console.log("interval", intervalCount)
+            onBallClick(ball1, 200)
+            onBallClick(ball2, 400)
+            onBall3Click()
+            onBall4Click()
+            intervalCount++
+        }, 2000)
+    }, 2000)
+}
+
+
+function undo(){
+var currUndo = []
+
 }
