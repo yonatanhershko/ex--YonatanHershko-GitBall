@@ -3,6 +3,7 @@ body {
     font-family: Helvetica;
     color: #edb12e;
     text-align: center;
+    transition: 1s;
 }
 
 .ball {

@@ -52,4 +52,6 @@ function onBall4Click(change,Reduced) {
 
 function onBall5Click(){
     
+    document.body.style.backgroundColor = getRandomColor()
+
 }
