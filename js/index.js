@@ -39,7 +39,7 @@ function saveState() {
 }
 
 
-function undo() {
+function onUndo() {
     if (!gState.length) return 
 
     var prevState = gState.pop()
@@ -61,7 +61,7 @@ function undo() {
 }
 
 
-function redo() {
+function onRedo() {
     if (!gRedoState.length) return 
     var lastState = gRedoState.pop()
 
