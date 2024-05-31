@@ -15,3 +15,22 @@ function getRandomColor() {
     }
     return color
 }
+
+function startTimer() {
+    gStartTime = Date.now()
+    gTimerInterval = setInterval(() => {
+        var elapsedTime = Date.now() - gStartTime
+        var minutes = Math.floor(elapsedTime / 60000)
+        var seconds = Math.floor((elapsedTime % 60000) / 1000)
+        var formattedTime = minutes + ':' + (seconds < 10 ? '0' : '') + seconds
+        var elSpan = document.querySelector('.time')
+        elSpan.innerText = formattedTime
+    }, 1000)
+}
+
+function resetTimer() {
+    gFirstClick = true
+    clearInterval(gTimerInterval)
+    var elSpan = document.querySelector('.time')
+    elSpan.innerText = '0.00'
+}

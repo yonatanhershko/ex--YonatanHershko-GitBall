@@ -2,7 +2,13 @@
 
 var gBall1size = 100
 var gBall2size = 100
+var gTimerInterval
+var gStartTime
+var gFirstClick
+var gIntervalTimeOut
+
 var nextMove = 0
+var elSpan
 
 var ranNum = getRandomInt(20, 61)
 var ranNum2 = getRandomInt(20, 61)
@@ -16,7 +22,7 @@ var interval
 var gState = []
 var gRedoState = []
 
-function manageUndoRedo(){
+function manageUndoRedo() {
     elBt.classList.toggle('bt-visibility')
 }
 
@@ -38,11 +44,17 @@ function saveState() {
     }
     state.backgroundColor = (document.body.style.backgroundColor || '#252525')
     gState.push(state)
+
+    if (gState.length > 1) {
+        console.log('hh');
+        gFirstClick === false
+        if (!gTimerInterval) startTimer()
+    }
 }
 
 
 function onUndo() {
-    if (!gState.length) return 
+    if (!gState.length) return
 
     var prevState = gState.pop()
     gRedoState.push(prevState)
@@ -64,7 +76,7 @@ function onUndo() {
 
 
 function onRedo() {
-    if (!gRedoState.length) return 
+    if (!gRedoState.length) return
     var lastState = gRedoState.pop()
 
     ball1.style.width = lastState.ball1.width
@@ -94,7 +106,7 @@ function onBallClick(ball, maxDiameter) {
         ball.style.width = gBall1size + 'px'
         ball.style.height = gBall1size + 'px'
         ball1.innerHTML = gBall1size
-      
+
     } else {
         gBall1size = 100
         ball.style.width = gBall1size + 'px'
@@ -145,8 +157,8 @@ function onBall3Click() {
     saveState()
 }
 
-function onBall4Click(emp,Reduced) {
-   
+function onBall4Click(emp, Reduced) {
+
     if (gBall1size > Reduced) {
         gBall1size -= ranNum
         gBall1size -= ranNum
@@ -179,7 +191,10 @@ function onBall5Click() {
 function onBall6Click() {
     nextMove = 0
     currNum.innerText = nextMove
-    
+    resetTimer()
+    gState = []
+    gTimerInterval = 0
+
     gBall1size = 100
     gBall1size = 100
     gBall2size = 100
@@ -188,10 +203,12 @@ function onBall6Click() {
     ball1.style.width = "100px"
     ball1.style.height = "100px"
     ball1.style.backgroundColor = "blanchedalmond"
+    ball1.innerHTML = gBall1size
 
     ball2.style.width = "100px"
     ball2.style.height = "100px"
     ball2.style.backgroundColor = "rgb(205, 253, 255)"
+    ball2.innerHTML = gBall1size
 
     document.body.style.backgroundColor = "#252525"
     saveState()
@@ -200,14 +217,14 @@ function onBall6Click() {
 
 var intervalCount = 0
 function onBall6() {
-    interval = setTimeout(function () {
-        interval = setInterval(function () {
+    gIntervalTimeOut = setTimeout(() => {
+        interval = setInterval(() => {
             if (intervalCount > 10) {
                 clearInterval(interval)
-                return
+                return intervalCount = 0
             }
             console.log("interval", intervalCount)
-            onBallClick(ball1, 200)
+            onBallClick(ball1, 300)
             onBallClick(ball2, 400)
             onBall3Click()
             onBall4Click()
@@ -216,3 +233,7 @@ function onBall6() {
     }, 2000)
 }
 
+function onBall6Leave() {
+    clearTimeout(gIntervalTimeOut)
+    clearInterval(interval)
+}
