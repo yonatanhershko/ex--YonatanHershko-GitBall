@@ -2,6 +2,7 @@
 
 var gBall1size = 100
 var gBall2size = 100
+var nextMove = 0
 
 var ranNum = getRandomInt(20, 61)
 var ranNum2 = getRandomInt(20, 61)
@@ -9,6 +10,7 @@ var ranNum2 = getRandomInt(20, 61)
 var ball1 = document.querySelector(".ball")
 var ball2 = document.querySelector(".ball2")
 var elBt = document.querySelector('.bt')
+var currNum = document.querySelector('.number')
 var interval
 
 var gState = []
@@ -83,13 +85,16 @@ function onRedo() {
 
 
 function onBallClick(ball, maxDiameter) {
+    nextMove++
+    currNum.innerText = nextMove
+    console.log(nextMove);
     if (gBall1size < maxDiameter) {
         ball.style.backgroundColor = getRandomColor()
         gBall1size += ranNum
         ball.style.width = gBall1size + 'px'
         ball.style.height = gBall1size + 'px'
         ball1.innerHTML = gBall1size
-
+      
     } else {
         gBall1size = 100
         ball.style.width = gBall1size + 'px'
@@ -100,6 +105,9 @@ function onBallClick(ball, maxDiameter) {
 }
 
 function onBall2Click(ball, maxDiameter) {
+    nextMove++
+    currNum.innerText = nextMove
+    console.log(nextMove);
     if (gBall2size < maxDiameter) {
         ball.style.backgroundColor = getRandomColor()
         gBall2size += ranNum2
@@ -118,6 +126,8 @@ function onBall2Click(ball, maxDiameter) {
 
 
 function onBall3Click() {
+    nextMove++
+    currNum.innerText = nextMove
     var ball1Color = ball1.style.backgroundColor
     var ball1Width = ball1.style.width
     var ball1Height = ball1.style.height
@@ -135,7 +145,8 @@ function onBall3Click() {
     saveState()
 }
 
-function onBall4Click(change, Reduced) {
+function onBall4Click(emp,Reduced) {
+   
     if (gBall1size > Reduced) {
         gBall1size -= ranNum
         gBall1size -= ranNum
@@ -154,15 +165,21 @@ function onBall4Click(change, Reduced) {
         gBall2size = 100
         gBall2size = 100
     }
-
+    nextMove++
+    currNum.innerText = nextMove
 }
 
 function onBall5Click() {
+    nextMove++
+    currNum.innerText = nextMove
     document.body.style.backgroundColor = getRandomColor()
     saveState()
 }
 
 function onBall6Click() {
+    nextMove = 0
+    currNum.innerText = nextMove
+    
     gBall1size = 100
     gBall1size = 100
     gBall2size = 100
